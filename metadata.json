@@ -1,7 +1,5 @@
 {
   "name": "말씀에 영감을 더하다 (Inspiration for the Word)",
   "description": "주일말씀을 AI로 분석하여 아름다운 전도용 요약카드와 인포그래픽으로 변환해주는 서비스입니다.",
-  "requestFramePermissions": [
-    "camera"
-  ]
+  "requestFramePermissions": []
 }

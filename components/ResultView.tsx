@@ -9,7 +9,6 @@ interface ResultViewProps {
 }
 
 const ResultView: React.FC<ResultViewProps> = ({ data, view }) => {
-  // 요약카드에서는 첫 번째 이미지를 대표 이미지로 사용
   const mainImage = data.generatedImages?.[0] || 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000';
 
   if (view === ViewType.SUMMARY_CARD) {
@@ -83,12 +82,14 @@ const ResultView: React.FC<ResultViewProps> = ({ data, view }) => {
                 </div>
               </section>
            </div>
+           <div className="py-10 text-center opacity-50">
+             <p className="text-xs font-black tracking-widest text-indigo-400 uppercase">Screen Captured Ready • Heavenly Paradise</p>
+           </div>
         </div>
       </div>
     );
   }
 
-  // 인포그래픽 뷰
   return (
     <div className="max-w-4xl mx-auto px-6 py-10 bg-white/30 backdrop-blur-sm rounded-[3rem] shadow-2xl border border-white/50 animate-in fade-in duration-1000">
       <div className="bg-white rounded-[4rem] shadow-2xl overflow-hidden border border-gray-50">
@@ -133,7 +134,6 @@ const ResultView: React.FC<ResultViewProps> = ({ data, view }) => {
                     alt={`Point ${idx + 1}`} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[8s] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
               </div>
             </div>
@@ -152,14 +152,14 @@ const ResultView: React.FC<ResultViewProps> = ({ data, view }) => {
         </div>
 
         <div className="bg-gray-50/80 border-t border-gray-100 p-10 text-center">
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="flex flex-wrap gap-3 justify-center mb-6">
                 {data.keywords.map((kw, i) => (
-                    <span key={i} className="px-5 py-2 bg-white border border-gray-200 rounded-full text-[11px] text-gray-500 font-black uppercase tracking-widest hover:border-indigo-300 hover:text-indigo-600 transition-all cursor-default shadow-sm">
+                    <span key={i} className="px-5 py-2 bg-white border border-gray-200 rounded-full text-[11px] text-gray-500 font-black uppercase tracking-widest shadow-sm">
                       #{kw}
                     </span>
                 ))}
             </div>
-            <p className="mt-8 text-[11px] text-gray-400 font-bold uppercase tracking-[0.4em] opacity-60">Heavenly Paradise • AI Design Studio</p>
+            <p className="text-[11px] text-gray-400 font-bold uppercase tracking-[0.4em] opacity-60">Heavenly Paradise • AI Design Studio</p>
         </div>
       </div>
     </div>

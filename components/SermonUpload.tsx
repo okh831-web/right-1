@@ -36,7 +36,7 @@ const SermonUpload: React.FC<SermonUploadProps> = ({ onAnalyze }) => {
     setIsReading(true);
     try {
       const extractedText = await extractTextFromPDF(file);
-      if (extractedText.trim().length < 10) throw new Error("PDF에서 텍스트를 추출할 수 없습니다. 이미지 중심의 PDF인지 확인해주세요.");
+      if (extractedText.trim().length < 10) throw new Error("PDF에서 텍스트를 추출할 수 없습니다. 내용이 있는 PDF 파일인지 확인해주세요.");
       onAnalyze(extractedText);
     } catch (err: any) {
       alert(err.message);
@@ -104,7 +104,7 @@ const SermonUpload: React.FC<SermonUploadProps> = ({ onAnalyze }) => {
            <CloudUpload className="w-10 h-10 text-white" />
         </div>
         <h3 className="text-2xl font-black text-gray-900 mb-1">말씀 PDF 업로드</h3>
-        <p className="text-gray-500 text-base font-bold">PDF 파일을 끌어다 놓으세요</p>
+        <p className="text-gray-500 text-base font-bold">PDF 파일만 업로드 가능합니다</p>
         
         {isReading && (
           <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center z-10">
